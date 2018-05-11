@@ -2,9 +2,10 @@ FROM ubuntu:16.04
 
 RUN apt-get update && apt-get upgrade -y \
   && apt-get install -y sudo nano apt-transport-https ca-certificates curl software-properties-common \
-  && useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
-#  && useradd --no-log-init -r -g gitbuilder
-#  && usermod -aG sudo
+#  && useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
+  && adduser --disabled-password --gecos '' docker \
+  && adduser docker sudo \
+  && echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 USER docker
 
