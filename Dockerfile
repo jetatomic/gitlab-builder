@@ -6,7 +6,8 @@ RUN apt-get update && apt-get upgrade -y \
   && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
   && apt-get update \
   && apt-cache policy docker-ce \
-  && apt-get install -y docker-ce
+  && apt-get install -y docker-ce \
+  && docker info | grep Storage
 
 #  && echo 'DOCKER_CONF=\"--storage-driver=aufs\"' >> /etc/default/docker \
 
