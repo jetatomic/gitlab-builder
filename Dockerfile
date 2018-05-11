@@ -7,9 +7,8 @@ RUN apt-get update && apt-get upgrade -y \
   && apt-get update \
   && apt-cache policy docker-ce \
   && apt-get install -y docker-ce \
-  && docker info | grep Storage
-
-#  && echo 'DOCKER_CONF=\"--storage-driver=aufs\"' >> /etc/default/docker \
+  && echo 'DOCKER_CONF=\"--storage-driver=aufs\"' >> /etc/default/docker
+#  && docker info | grep Storage
 
 # Cleanup
 RUN apt-get clean
